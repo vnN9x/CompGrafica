@@ -1,22 +1,25 @@
 package view;
 
-import entity.Quadrado;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.util.List;
 
 import javax.swing.JPanel;
 
+import entity.Ponto;
+import entity.Desenho;
+
 public class Plano extends JPanel {
 
-    Quadrado forma;
+    Desenho forma;
 
-    public Plano(Quadrado forma) {
+    public Plano(Desenho forma) {
         this.forma = forma;
     }
 
-    public void desenhoUpdate(Quadrado forma) {
+    public void desenhoUpdate(Desenho forma) {
         this.forma = forma;
         repaint();
     }
@@ -30,7 +33,7 @@ public class Plano extends JPanel {
 
         g2d.setStroke(new BasicStroke(15));
 
-        List<Ponto> pontos = desenho.getPontos(); 
+        List<Ponto> pontos = this.forma.getPontos(); 
 
         if(pontos==null) {
             System.out.println("Desenho eh nulo");
@@ -42,12 +45,12 @@ public class Plano extends JPanel {
         for(Ponto pontoAtual: pontos) {
             g2d.setColor(cor.getCor());
             g2d.drawLine(
-                    (int)pontoAnterior.x, (int)pontoAnterior.y, 
-                    (int)pontoAtual.x,    (int)pontoAtual.y);
+                    (int)pontoAnterior.getX(), (int)pontoAnterior.getY(), 
+                    (int)pontoAtual.getX(),    (int)pontoAtual.getY());
 
             cor = cor.next();
             pontoAnterior = pontoAtual;
 
         }
     }
-
+}

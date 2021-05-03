@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import entity.Ponto;
-import entity.Quadrado;
+import entity.Desenho;
 
 public class Model {
 
@@ -14,9 +14,15 @@ public class Model {
 		pontos.add(new Ponto(350, 250));
 		pontos.add(new Ponto(350, 350));
 		pontos.add(new Ponto(250, 350));
+		pontos.add(new Ponto(200, 200));
+		pontos.add(new Ponto(400, 400));
 	};
 	
-	Quadrado quadrado = new Quadrado(pontos);
+	Desenho desenho = new Desenho(pontos);
 	
 	public Model() {}
+	
+	public Desenho getDesenho() {
+		return this.desenho;
+	}
 }
