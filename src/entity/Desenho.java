@@ -4,25 +4,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Desenho {
-	List<Ponto> pontosIniciais = new ArrayList<>();
+	List<Ponto> pontosIniciais;
 	List<Ponto> pontos;
 	List<Ponto> backup = pontosIniciais;
 	
-	public Desenho(List<Ponto> pontosIniciais) {
-		this.pontosIniciais = pontosIniciais;
+	public Desenho(List<Ponto> aPontosIniciais) {
+		this.pontosIniciais = aPontosIniciais;
 	}
 	
 	public void setPoligono(int vertices) { //escolhe o poligono de acordo com a quantidade de vertices
 		 List<Ponto> quadrado = new ArrayList<>();
-			quadrado.add(new Ponto(250, 250));
-			quadrado.add(new Ponto(350, 250));
-			quadrado.add(new Ponto(350, 350));
-			quadrado.add(new Ponto(250, 350));
+           quadrado.add(new Ponto(200, 200));
+           quadrado.add(new Ponto(600, 200));
+           quadrado.add(new Ponto(600, 600));
+           quadrado.add(new Ponto(200, 600));
 		
 		List<Ponto> triangulo = new ArrayList<>();
-			triangulo.add(new Ponto(250, 250)); //cima esquerda
-			triangulo.add(new Ponto(350, 250)); //cima direita
-			triangulo.add(new Ponto(300, 400)); //baixo
+			triangulo.add(new Ponto(200, 200)); //cima esquerda
+	        triangulo.add(new Ponto(600, 200)); //cima direita
+	        triangulo.add(new Ponto(400, 600)); //baixo
 		
 		List<Ponto> pentagono = new ArrayList<>();
 			pentagono.add(new Ponto(250, 250)); //cima esquerda
@@ -52,26 +52,35 @@ public class Desenho {
 			this.pontosIniciais = hexagono;
 			break;	
 		}
-
 	}
 	
 	public void cis(int qtdCis){ //cisalhamento
+		System.out.println(this.pontosIniciais);
 		int index = 0;
+		double x;
 		for(Ponto p: this.pontosIniciais) {
-			p.setX(p.getX()+qtdCis);
-			p.setY(p.getY()-qtdCis);
-			this.pontosIniciais.set(index, p);
+			if(index%2 == 0){
+				x = p.getX()-qtdCis;
+			}else {
+				x = p.getX()+qtdCis;
+			}
+			Ponto ponto = new Ponto(x, p.getY());
+			this.pontosIniciais.set(index, ponto);
 			index++;
 		}
 		index = 0;
+		System.out.println(this.pontosIniciais);
 	}
 	
 	public void rotar(int rota) {
 		int index = 0;
+		double x;
+		double y;
 		for(Ponto p: this.pontosIniciais) {
-			p.setX(p.getX()+rota);
-			p.setY(p.getY()+rota);
-			this.pontosIniciais.set(index, p);
+			x = Math.round((p.getX()*Math.cos(Math.toRadians(rota)))+(p.getY()*Math.sin(Math.toRadians(rota))));
+			y = Math.round((p.getX()*-Math.sin(Math.toRadians(rota)))+(p.getY()*Math.cos(Math.toRadians(rota))));
+			Ponto ponto = new Ponto(x, y);
+			this.pontosIniciais.set(index, ponto);
 			index++;
 		}
 		index = 0;
@@ -80,13 +89,15 @@ public class Desenho {
 	public void escala(int escala) {
 		double nEscala = escala/10;
 		int index = 0;
+		double y;
+		double x;
 		for(Ponto p: this.pontosIniciais) {
-			p.setX(p.getX()*nEscala);
-			p.setY(p.getY()*nEscala);
-			this.pontosIniciais.set(index, p);
+			x = Math.round(p.getX()*nEscala);
+			y = Math.round(p.getY()*nEscala);
+			Ponto ponto = new Ponto(x, y);
+			this.pontosIniciais.set(index, ponto);
 			index++;
 		}
-		index = 0;
 	}
 	
 	public void voltar() {
@@ -108,5 +119,6 @@ public class Desenho {
 		pontoMedio.y /= pontos.size();
 		
 		return pontoMedio;
-	}
+	}		
 }
+

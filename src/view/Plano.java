@@ -22,6 +22,7 @@ public class Plano extends JPanel {
     public void desenhoUpdate(Desenho forma) {
         this.forma = forma;
         repaint();
+
     }
 
     @Override

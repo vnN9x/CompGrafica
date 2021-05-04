@@ -42,6 +42,10 @@ public class Controladores extends JPanel{
 		return escalamentoSlider.getValue();
 	}
 	
+	public void setQuantidadeLadosSlider(JSlider quantidadeLadosSlider) {
+		this.quantidadeLadosSlider = quantidadeLadosSlider;
+	}
+
 	public int getValorCisalhamentoSlider() {
 		return cisalhamentoSlider.getValue();
 	}

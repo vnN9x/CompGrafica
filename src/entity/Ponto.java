@@ -24,4 +24,12 @@ public class Ponto {
 	public double getY() {
 		return this.y;
 	}
+	
+	@Override
+	public String toString() {
+		String res = "";
+		res += this.x+" "+this.y;
+		return res;
+		
+	}
 }
