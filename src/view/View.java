@@ -2,9 +2,12 @@ package view;
 
 import javax.swing.event.ChangeListener;
 
+import entity.Desenho;
+
 public class View {
 
 	Janela janela;
+	//Plano plano = new Plano(new Model().getDesenho());
 	
 	public View(Plano plano) {
 		janela = new Janela(plano);
@@ -29,4 +32,7 @@ public class View {
 	public int getValorQuantidadeLadosSlider() {
 		return janela.getValorQuantidadeLadosSlider();
 	}
+	public void atualiza(Desenho desenho) {
+        janela.atualiza(desenho);
+    }
 }

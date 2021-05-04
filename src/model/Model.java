@@ -7,18 +7,15 @@ import entity.Ponto;
 import entity.Desenho;
 
 public class Model {
-
-	static List<Ponto> pontos = new ArrayList<>();
-	{
-		pontos.add(new Ponto(250, 250));
-		pontos.add(new Ponto(350, 250));
-		pontos.add(new Ponto(350, 350));
-		pontos.add(new Ponto(250, 350));
-		pontos.add(new Ponto(200, 200));
-		pontos.add(new Ponto(400, 400));
-	};
 	
-	Desenho desenho = new Desenho(pontos);
+	static List<Ponto> triangulo = new ArrayList<>();
+	{
+		triangulo.add(new Ponto(250, 250)); //cima esquerda
+		triangulo.add(new Ponto(350, 250)); //cima direita
+		triangulo.add(new Ponto(300, 400)); //baixo
+	};
+		
+	Desenho desenho = new Desenho(triangulo);
 	
 	public Model() {}
 	

@@ -8,17 +8,21 @@ import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.event.ChangeListener;
 
+import entity.Desenho;
+
 public class Controladores extends JPanel{
+	
+	Desenho desenho;
 
 	JSlider rotacaoSlider = new JSlider(0, 360, 0);
 	JSlider escalamentoSlider = new JSlider(0, 300, 0);
 	JSlider cisalhamentoSlider = new JSlider(0, 300, 0);
-	JSlider quantidadeLadosSlider = new JSlider(3, 8, 3);
+	JSlider quantidadeLadosSlider = new JSlider(3, 6, 3);
 	
 	public Controladores() {
 		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 		
-		add(new Label(" RotaÃ§Ã£o:"));
+		add(new Label(" Rotação:"));
 		add(rotacaoSlider);
 		add(new Label(" Escalamento:"));
 		add(escalamentoSlider);

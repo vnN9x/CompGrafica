@@ -1,12 +1,13 @@
 package view;
 
-import java.awt.Color;
-
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.event.ChangeListener;
 
+import entity.Desenho;
+
 public class Janela extends JFrame {
+	Plano plano;
 	
 	Controladores controladores = new Controladores();
 
@@ -14,6 +15,7 @@ public class Janela extends JFrame {
 		setSize(800, 900);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new BoxLayout(this.getContentPane(), BoxLayout.Y_AXIS));
+		setResizable(false);
 		
 		add(controladores);
 		add(plano);
@@ -40,4 +42,7 @@ public class Janela extends JFrame {
 	public int getValorQuantidadeLadosSlider() {
 		return controladores.quantidadeLadosSlider.getValue();
 	}
+	public void atualiza(Desenho desenho) {
+        plano.desenhoUpdate(desenho);
+    }
 }

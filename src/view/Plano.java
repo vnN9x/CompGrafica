@@ -36,19 +36,16 @@ public class Plano extends JPanel {
         List<Ponto> pontos = this.forma.getPontos(); 
 
         if(pontos==null) {
-            System.out.println("Desenho eh nulo");
             return;
         }
 
         Ponto pontoAnterior = pontos.get(pontos.size()-1);
-        Cores cor = Cores.values()[0];
         for(Ponto pontoAtual: pontos) {
-            g2d.setColor(cor.getCor());
+            g2d.setColor(Color.BLUE);
             g2d.drawLine(
                     (int)pontoAnterior.getX(), (int)pontoAnterior.getY(), 
                     (int)pontoAtual.getX(),    (int)pontoAtual.getY());
 
-            cor = cor.next();
             pontoAnterior = pontoAtual;
 
         }

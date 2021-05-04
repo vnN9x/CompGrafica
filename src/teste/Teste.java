@@ -1,14 +1,20 @@
 package teste;
 
-import model.Model;
-import view.Janela;
-import view.Plano;
+import javax.swing.SwingUtilities;
+
+import controller.Controller;
 
 public class Teste {
 	public static void main(String[] args) {
-		new Janela(new Plano(new Model().getDesenho()));
-		
-		
-		
+		SwingUtilities.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				createAndShowGUI();
+			}
+		});
+	}
+	
+	public static void createAndShowGUI(){
+		new Controller();
 	}
 }
