@@ -6,10 +6,12 @@ import java.util.List;
 public class Desenho {
 	List<Ponto> pontosIniciais;
 	List<Ponto> pontos;
-	List<Ponto> backup = pontosIniciais;
+	List<Ponto> backup = new ArrayList<>();
+
 	
 	public Desenho(List<Ponto> aPontosIniciais) {
 		this.pontosIniciais = aPontosIniciais;
+		backup = pontosIniciais;
 	}
 	
 	public void setPoligono(int vertices) { //escolhe o poligono de acordo com a quantidade de vertices
@@ -58,7 +60,7 @@ public class Desenho {
 	public void cis(int qtdCis){ //cisalhamento
 		int index = 0;
 		double x;
-		for(Ponto p: this.pontosIniciais) {
+		for(Ponto p: this.backup) {
 			if(index%2 == 0){
 				x = p.getX()-qtdCis;
 			}else {
@@ -68,7 +70,6 @@ public class Desenho {
 			this.pontosIniciais.set(index, ponto);
 			index++;
 		}
-		index = 0;
 	}
 	
 	public void rotar(int rota) {
@@ -86,27 +87,24 @@ public class Desenho {
 	}
 	
 	public void escala(int escala) {
-		double nEscala = escala/10;
+		double nEscala = (double) escala/10;
 		System.out.println(nEscala);
 		int index = 0;
 		double y;
 		double x;
-//		if (nEscala > 1.5) {
-//			nEscala = 1.5;
-//		}
-		System.out.println(this.pontosIniciais);
 		Ponto ponto;
 		for(Ponto p: this.backup) {
-			if(nEscala > 0.0) {
+			System.out.println("Antes: "+ this.backup);
+			if(nEscala <= 0.9) {
+				continue;
+			}else {
 				x = Math.round(p.getX()*nEscala);
 				y = Math.round(p.getY()*nEscala);
-				ponto = new Ponto(x, y);
-			}else {
-				ponto = new Ponto(p.getX(), p.getY());
-			}		
+			ponto = new Ponto(x, y);	
 			this.pontosIniciais.set(index, ponto);
-			System.out.println(this.pontosIniciais);
+			System.out.println("Depois: " +this.pontosIniciais);
 			index++;
+			}
 		}
 	}
 	
@@ -127,8 +125,16 @@ public class Desenho {
 		}
 		pontoMedio.x /= pontos.size();
 		pontoMedio.y /= pontos.size();
-		
+		System.out.println(pontoMedio);
 		return pontoMedio;
-	}		
+	}
+	
+	public List<Ponto> centralizar(List<Ponto> central) {
+		int index = 0;
+		for (Ponto p: central) {
+			
+		}
+		return central;
+	}
 }
 

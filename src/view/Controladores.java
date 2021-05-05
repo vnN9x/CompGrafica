@@ -15,8 +15,8 @@ public class Controladores extends JPanel{
 	Desenho desenho;
 
 	JSlider rotacaoSlider = new JSlider(0, 15, 0);
-	JSlider escalamentoSlider = new JSlider(0, 300, 0);
-	JSlider cisalhamentoSlider = new JSlider(0, 100, 0);
+	JSlider escalamentoSlider = new JSlider(0, 15, 0);
+	JSlider cisalhamentoSlider = new JSlider(0, 50, 0);
 	JSlider quantidadeLadosSlider = new JSlider(3, 6, 3);
 	
 	public Controladores() {
@@ -55,9 +55,6 @@ public class Controladores extends JPanel{
 	}
 	
 	public void setSlidersListener(ChangeListener listener) {
-		//rotacaoSlider.addChangeListener(listener);
-		escalamentoSlider.addChangeListener(listener);
-		//cisalhamentoSlider.addChangeListener(listener);
 		quantidadeLadosSlider.addChangeListener(listener);
 	}
 	public void setSlidersListenerRotacao(ChangeListener listener) {
@@ -65,5 +62,8 @@ public class Controladores extends JPanel{
 	}
 	public void setSlidersListenerCisalhamento(ChangeListener listener) {
 		cisalhamentoSlider.addChangeListener(listener);
+	}
+	public void setSlidersListenerEscalamento(ChangeListener listener) {
+		escalamentoSlider.addChangeListener(listener);
 	}
 }

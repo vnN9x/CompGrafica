@@ -38,6 +38,10 @@ public class Janela extends JFrame {
 		controladores.setSlidersListenerCisalhamento(listener);
 	}
 	
+	public void setSlidersListenerEscalamento(ChangeListener listener) {
+		controladores.setSlidersListenerEscalamento(listener);
+	}
+	
 	public int getValorRotacaoSlider() {
 		return controladores.rotacaoSlider.getValue();
 	}

@@ -19,7 +19,7 @@ public class Controller {
 		view.setSlidersListener(new MudaVertice());
 		view.setSlidersListenerRotacao(new Rotaciona());
 		view.setSlidersListenerCisalhamento(new Cisalhamento());
-//		view.setSlidersListener(new Escalamento());
+		view.setSlidersListenerEscalamento(new Escalamento());
 	}
 	
 	class MudaVertice implements ChangeListener{

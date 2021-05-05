@@ -22,6 +22,9 @@ public class View {
 	public void setSlidersListenerCisalhamento(ChangeListener listener) {
 		janela.setSlidersListenerCisalhamento(listener);
 	}
+	public void setSlidersListenerEscalamento(ChangeListener listener) {
+		janela.setSlidersListenerEscalamento(listener);
+	}
 	
 	public int getValorRotacaoSlider() {
 		return janela.getValorRotacaoSlider();

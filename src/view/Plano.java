@@ -43,10 +43,7 @@ public class Plano extends JPanel {
         Ponto pontoAnterior = pontos.get(pontos.size()-1);
         for(Ponto pontoAtual: pontos) {
             g2d.setColor(Color.WHITE);
-            g2d.drawLine(
-                    (int)pontoAnterior.getX(), (int)pontoAnterior.getY(), 
-                    (int)pontoAtual.getX(),    (int)pontoAtual.getY());
-
+            g2d.drawLine((int)pontoAnterior.getX(), (int)pontoAnterior.getY(), (int)pontoAtual.getX(), (int)pontoAtual.getY());
             pontoAnterior = pontoAtual;
 
         }
