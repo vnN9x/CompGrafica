@@ -20,24 +20,25 @@ public class Desenho {
            quadrado.add(new Ponto(200, 600));
 		
 		List<Ponto> triangulo = new ArrayList<>();
-			triangulo.add(new Ponto(200, 200)); //cima esquerda
-	        triangulo.add(new Ponto(600, 200)); //cima direita
-	        triangulo.add(new Ponto(400, 600)); //baixo
+			triangulo.add(new Ponto(200, 200)); 
+	        triangulo.add(new Ponto(600, 200)); 
+	        triangulo.add(new Ponto(400, 600)); 
 		
 		List<Ponto> pentagono = new ArrayList<>();
-			pentagono.add(new Ponto(250, 250)); //cima esquerda
-			pentagono.add(new Ponto(350, 250)); //cima direita
-			pentagono.add(new Ponto(350, 350)); //baixo direita
-			pentagono.add(new Ponto(300, 400)); //baixo
-			pentagono.add(new Ponto(250, 350)); //baixo esquerda
+	        pentagono.add(new Ponto(600, 400));
+	        pentagono.add(new Ponto(500, 600));
+	        pentagono.add(new Ponto(300, 600));
+	        pentagono.add(new Ponto(200, 400));
+		
 		
 		List<Ponto> hexagono = new ArrayList<>();
-			hexagono.add(new Ponto(220, 250)); //cima esquerda
-			hexagono.add(new Ponto(300, 200)); //cima
-			hexagono.add(new Ponto(370, 250)); //cima direita
-			hexagono.add(new Ponto(370, 350)); //baixo direita
-			hexagono.add(new Ponto(300, 400)); //baixo
-			hexagono.add(new Ponto(220, 350)); //baixo esquerda
+			hexagono.add(new Ponto(500, 200));
+	        hexagono.add(new Ponto(600, 400));
+	        hexagono.add(new Ponto(500, 600));
+	        hexagono.add(new Ponto(300, 600));
+	        hexagono.add(new Ponto(200, 400));
+	        hexagono.add(new Ponto(300, 200));
+		
 		switch(vertices) {
 		case 3:
 			this.pontosIniciais = triangulo;
@@ -55,7 +56,6 @@ public class Desenho {
 	}
 	
 	public void cis(int qtdCis){ //cisalhamento
-		System.out.println(this.pontosIniciais);
 		int index = 0;
 		double x;
 		for(Ponto p: this.pontosIniciais) {
@@ -69,7 +69,6 @@ public class Desenho {
 			index++;
 		}
 		index = 0;
-		System.out.println(this.pontosIniciais);
 	}
 	
 	public void rotar(int rota) {
@@ -88,14 +87,25 @@ public class Desenho {
 	
 	public void escala(int escala) {
 		double nEscala = escala/10;
+		System.out.println(nEscala);
 		int index = 0;
 		double y;
 		double x;
-		for(Ponto p: this.pontosIniciais) {
-			x = Math.round(p.getX()*nEscala);
-			y = Math.round(p.getY()*nEscala);
-			Ponto ponto = new Ponto(x, y);
+//		if (nEscala > 1.5) {
+//			nEscala = 1.5;
+//		}
+		System.out.println(this.pontosIniciais);
+		Ponto ponto;
+		for(Ponto p: this.backup) {
+			if(nEscala > 0.0) {
+				x = Math.round(p.getX()*nEscala);
+				y = Math.round(p.getY()*nEscala);
+				ponto = new Ponto(x, y);
+			}else {
+				ponto = new Ponto(p.getX(), p.getY());
+			}		
 			this.pontosIniciais.set(index, ponto);
+			System.out.println(this.pontosIniciais);
 			index++;
 		}
 	}

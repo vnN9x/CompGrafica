@@ -14,6 +14,7 @@ public class Janela extends JFrame {
 	Controladores controladores = new Controladores();
 
 	public Janela(Plano plano) {
+		this.plano = plano;
 		setSize(800, 900);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new BoxLayout(this.getContentPane(), BoxLayout.Y_AXIS));
@@ -27,6 +28,14 @@ public class Janela extends JFrame {
 	
 	public void setSlidersListener(ChangeListener listener) {
 		controladores.setSlidersListener(listener);
+	}
+	
+	public void setSlidersListenerRotacao(ChangeListener listener) {
+		controladores.setSlidersListenerRotacao(listener);
+	}
+	
+	public void setSlidersListenerCisalhamento(ChangeListener listener) {
+		controladores.setSlidersListenerCisalhamento(listener);
 	}
 	
 	public int getValorRotacaoSlider() {

@@ -17,8 +17,8 @@ public class Controller {
 		view = new View(new Plano(model.getDesenho()));
 		
 		view.setSlidersListener(new MudaVertice());
-//		view.setSlidersListener(new Rotaciona());
-//		view.setSlidersListener(new Cisalhamento());
+		view.setSlidersListenerRotacao(new Rotaciona());
+		view.setSlidersListenerCisalhamento(new Cisalhamento());
 //		view.setSlidersListener(new Escalamento());
 	}
 	

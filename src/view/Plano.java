@@ -32,7 +32,7 @@ public class Plano extends JPanel {
 
         this.setBackground(new Color(43, 43, 43));
 
-        g2d.setStroke(new BasicStroke(15));
+        g2d.setStroke(new BasicStroke(4));
 
         List<Ponto> pontos = this.forma.getPontos(); 
 
@@ -42,7 +42,7 @@ public class Plano extends JPanel {
 
         Ponto pontoAnterior = pontos.get(pontos.size()-1);
         for(Ponto pontoAtual: pontos) {
-            g2d.setColor(Color.BLUE);
+            g2d.setColor(Color.WHITE);
             g2d.drawLine(
                     (int)pontoAnterior.getX(), (int)pontoAnterior.getY(), 
                     (int)pontoAtual.getX(),    (int)pontoAtual.getY());

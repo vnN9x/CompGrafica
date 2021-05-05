@@ -7,7 +7,6 @@ import entity.Desenho;
 public class View {
 
 	Janela janela;
-	//Plano plano = new Plano(new Model().getDesenho());
 	
 	public View(Plano plano) {
 		janela = new Janela(plano);
@@ -15,6 +14,13 @@ public class View {
 	
 	public void setSlidersListener(ChangeListener listener) {
 		janela.setSlidersListener(listener);
+	}
+	
+	public void setSlidersListenerRotacao(ChangeListener listener) {
+		janela.setSlidersListenerRotacao(listener);
+	}
+	public void setSlidersListenerCisalhamento(ChangeListener listener) {
+		janela.setSlidersListenerCisalhamento(listener);
 	}
 	
 	public int getValorRotacaoSlider() {
